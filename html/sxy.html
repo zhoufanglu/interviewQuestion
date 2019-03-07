@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wow{
+            width:150px;
+            display: block;
+            background:#333;
+            color:#fff;
+            text-align: center;
+            line-height: 36px;
+            transition: 0.3s;
+        }
+        .wow span{
+            opacity: 0;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .wow:hover span{
+            text-indent: 10px;
+            opacity: 1;
+        }
+        .wow:hover {
+            color:#fff;
+        }
+
+    </style>
+</head>
+<body>
+<a  class="more wow">MORE<span>></span></a>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>复选框</title>
+		<style>
+			label{
+				display: inline-block;
+				width: 60px;
+				height: 26px;
+				background-color: #666;
+				border-radius: 20px;
+				vertical-align: middle;
+				text-align: left;
+			}
+			label:after{
+				content: '';
+				width: 26px;
+				height: 26px;
+				border-radius: 50%;
+				background-color: white;
+				display: inline-block;
+				position: relative;
+				top: -30px;
+				transition: transform .5s;
+			}
+			input[type='checkbox']:checked+label:after{
+				-webkit-transform: translateX(34px);
+				-moz-transform: translateX(34px);
+				-ms-transform: translateX(34px);
+				-o-transform: translateX(34px);
+				transform: translateX(34px);
+			}
+			:checked+label{
+				background-color: green;
+				transition: transform 2s ease-in;
+			}
+			
+		</style>
+	</head>
+	<body>
+	  <div style=" background-color: cornflowerblue; height: 100px; line-height: 100px;">
+		<input type="checkbox"  id="check1"  onclick="check1_onclick()"/>
+		<label for="check1" id='label1'>
+			<span>aaa</span>
+		</label>
+	  </div>	
+	  <script>
+	  	  /*function check1_onclick(){
+	  	  	var label1=document.getElementById('label1');
+	  	  	var check1=document.getElementById('check1');
+	  	  	if(check1.checked==true)
+	  	  	  label1.style.backgroundColor='green';
+	  	  	else  
+	  	  	  label1.style.backgroundColor='#666';
+	  	  }*/
+	  </script>
+	</body>
+</html>

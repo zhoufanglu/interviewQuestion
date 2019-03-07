@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>function</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        /* let arr = [
+             {name:'lfz',age:'23'},
+             {name:'sxy',age:'22'},
+             {name:'lfz2',age:'21'},
+             {name:'sxy2',age:'25'}
+         ];
+         console.log(18,factorial(4));*/
+    };
+   //阶乘
+    let factorial = (number) => {
+        if (number < 1) {
+            return 1;
+        } else {
+            return factorial(number - 1) * number;
+        }
+    };
+    //输出颜色
+    /*let consoleColor = (e) => {
+        console.log(this.color);
+    }*/
+    window.color = 'red';
+    let objColor = {color:'black'};
+    consoleColor();
+    objColor.sayColor = consoleColor;
+    objColor.sayColor();
+    function consoleColor(){
+        console.log(this.color);
+    }
+</script>
+</html>

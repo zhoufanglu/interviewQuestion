@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .title{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<table border="1">
+    <tr class="title"  onclick="titleClick(this,'trChild1')">
+        <td colspan="4">父亲</td>
+    </tr>
+    <tr class="trChild1">
+        <td>儿子</td>
+        <td>儿子</td>
+        <td>儿子</td>
+        <td>儿子</td>
+    </tr>
+    <tr class="trChild1">
+        <td>儿子</td>
+        <td>儿子</td>
+        <td>儿子</td>
+        <td>儿子</td>
+    </tr>
+    <tr class="trChild1">
+        <td>儿子</td>
+        <td>儿子</td>
+        <td>儿子</td>
+        <td>儿子</td>
+    </tr>
+    <tr class="title"  onclick="titleClick(this,'trChild2')">
+        <td colspan="4">父亲</td>
+    </tr>
+    <tr class="trChild2">
+        <td>女儿</td>
+        <td>女儿</td>
+        <td>女儿</td>
+        <td>女儿</td>
+    </tr>
+    <tr class="trChild2">
+        <td>女儿</td>
+        <td>女儿</td>
+        <td>女儿</td>
+        <td>女儿</td>
+    </tr>
+    <tr class="trChild2">
+        <td>女儿</td>
+        <td>女儿</td>
+        <td>女儿</td>
+        <td>女儿</td>
+    </tr>
+</table>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script>
+        function titleClick(titleObj,trChildName) {
+            let titleTr = $(titleObj);
+            if(titleTr.hasClass('on')){
+                titleTr.removeClass('on');
+                //根据样式监听是否显示
+                $("."+trChildName+"").hide();
+            }else{
+                titleTr.addClass('on');
+                $("."+trChildName+"").show();
+            }
+
+        }
+</script>
+</body>
+</html>

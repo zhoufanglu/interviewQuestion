@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <input id = "fileUp" type="file">
+    <button onclick="btnclick()">取消</button>
+    <script type="text/javascript" src="../lib/jquery.js"></script>
+    <script>
+        function btnclick() {
+            var file = $('#fileUp');
+            file.val("");
+        }
+    </script>
+</body>
+</html>

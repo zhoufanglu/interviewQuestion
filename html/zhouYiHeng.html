@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1">
+        <thead class="tableHead">
+            <tr>
+                <th>指标名称</th>
+            </tr>
+        </thead>
+        <tbody id = "tableBody1">
+            <tr>
+                <td colspan="3">单位工程费用指标</td>
+            </tr>
+        </tbody>
+        <tbody id = "tableBody2">
+        <tr>
+            <td colspan="3">单位工程费用占比</td>
+        </tr>
+        </tbody>
+    </table>
+    <div id = "panel"></div>
+    <script   src="http://code.jquery.com/jquery-3.2.1.js"   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="   crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            var data = [];
+           data = [
+                {name1:"工程1",name2:"工程2"},
+                {quotaName:"普通钢结构",unit:"t", unitValue1 :"10.0",unitValue2 :"333.0"},
+                {quotaName:"普通钢结构",unit:"t", unitValue1 :"10.0",unitValue2 :"333.0"},
+                {quotaName:"普通钢结构",unit:"t", unitValue1 :"10.0",unitValue2 :"333.0"}
+            ]
+            data ={
+                "columns":
+                    [
+                       {"quota_project_name":"测试"},
+                       {"unitvalue":10,"quotaname":"刚结构"},
+                       {"unitvalue":10,"quotaname":"刚结构"}
+                   ]
+           }
+           data ={"columns": [
+               {"quota_project_name":"测试"},
+               {"unitvalue":10,"quotaname":"刚结构"},
+               {"unitvalue":10,"quotaname":"刚结构"},
+               {"quota_project_name":"测试"},
+               {"unitvalue":10,"quotaname":"刚结构"},
+               {"unitvalue":10,"quotaname":"刚结构"},
+                ]
+           }
+           var tableData= {
+            columns:
+            "<table border='1' cellspacing='0' id='dataTableDetail' align='center>" +
+                "<tr style='font-weight:bold;background-color:rgb(255,255,255)'>" +
+                    "<td width='280' align=\"center\" >" +
+                        "<font size='4' style='font-weight:bold;'>指标名称<\/font>" +
+                    "<\/td>" +
+                    "<td align=\"center\" width='200'><font size='3' color='red' style='font-weight:bold;'>测是<\/font>" +
+                    "<\/td>" +
+                "<\/tr>" +
+                "<tr style='font-weight:bold;background-color:rgb(204, 192, 218)'>" +
+                    "<td align=\"center\" colspan='2'><font size='4' style='font-weight:bold;'>工程费用<\/font><\/td>" +
+                "<\/tr>" +
+                "<tr>" +
+                    "<td align=\"center\" width='200'><font size='3' color='red' style='font-weight:bold;'>人工<\/font><\/td>" +
+                    "<td align=\"center\" width='200'>" +
+                        "<font size='3' color='red' style='font-weight:bold;'>211.0<\/font>" +
+                    "<\/td>" +
+                "<\/tr>" +
+            "<\/table>"
+        }
+        console.log(74,typeof (tableData.columns))
+        $('#panel').append(tableData.columns);
+        //loadTabel(data);
+        });
+
+        /**
+         *表格数据渲染
+         */
+        function loadTabel(data) {
+            var tbodyStr = "",tr = "";
+            var theadTr = "";
+            //指标名称
+            theadTr = "<th>"+data[0].name1+"</th>" +
+                "<th>"+data[0].name2+"</th>";
+            $('.tableHead tr').append(theadTr);
+            for(var i = 1;i < data.length; i++){
+                 tr = "<tr>" +
+                        "<td>"+data[i].quotaName+"</td>" +
+                        "<td>"+data[i].unitValue1+data[i].unit+"</td>" +
+                        "<td>"+data[i].unitValue2+data[i].unit+"</td>" +
+                    "</tr>";
+                tbodyStr += tr;
+            }
+            $('#tableBody1').append(tbodyStr);
+            $('#tableBody2').append(tbodyStr);
+        }
+
+        let arr1 = [1,2,];
+        let arr2 = [1,2];
+        console.log(103,arr1);
+        console.log(104,arr2);
+    </script>
+</body>
+</html>

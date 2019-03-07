@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>each嵌套</title>
+</head>
+<body>
+    <div id = "myPanel"></div>
+<script src="../lib/jquery.js"></script>
+<script src="../lib/handlebars.js"></script>
+<script id="template" type="text/x-handlebars-template">
+    <button id="myBtn">sdas</button>
+    {{#each this}}
+        <p>{{addOne @index}}{{name}}</p>
+        <input type="text" value="{{name}}">
+        {{#each info}}
+            <span>{{../_index}}.{{addOne @index}}{{this}}</span>
+        {{/each}}
+    {{/each}}
+</script>
+<script>
+    $(function () {
+        var data = [
+            {name:'狗',info:["眼睛","鼻子"]},
+            {name:'猫',info:["耳朵","手"]},
+        ];
+        //注册索引+1的helper
+        var handleHelper = Handlebars.registerHelper("addOne",function(index){
+            //返回+1之后的结果
+            this._index = index + 1;
+            console.log(29,index);
+            return this._index;
+        });
+        var template = Handlebars.compile($('#template').html());
+        $('#myPanel').html(template(data));
+    });
+</script>
+</body>
+</html>

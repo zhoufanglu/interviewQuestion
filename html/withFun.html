@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>with用法</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>名字</th>
+                <th>属性</th>
+                <th>爱好</th>
+            </tr>
+        </thead>
+        <tbody id = 'tbody'>
+        </tbody>
+    </table>
+
+
+<script type="text/javascript" src="../lib/jquery.js"></script>
+<script type="text/javascript" src="../lib/handlebars.js"></script>
+<!--模板-->
+<script id = "withTemplate" type="text/x-handlebars-template">
+    {{#each this}}
+        <tr>
+            <td>{{name}}</td>
+            <td>
+                {{#each info}}
+                    <span>{{this}}</span>
+                {{/each}}
+            </td>
+            <td>
+                {{#each favorite}}
+                    <span>{{name}}</span>
+                {{/each}}
+            </td>
+        </tr>
+    {{/each}}
+</script>
+<script>
+    $(function () {
+        var data = [
+            {
+                name:'狗',
+                info:["眼睛","鼻子"],
+                favorite:[
+                        {name:'吃骨头'},
+                        {name:'吃肉'}
+                    ]
+            },
+            {name:'猫',info:["耳朵","手"],favorite:[{name:'吃鱼'}]},
+        ];
+        var template = Handlebars.compile($('#withTemplate').html());
+        $('#tbody').append(template(data));
+        console.log(27,data);
+    })
+</script>
+</body>
+</html>

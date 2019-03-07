@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="../lib/iconfont.css">
+</head>
+<body>
+    <div id = "myDiv">
+
+    </div>
+    <div>---------------</div>
+</body>
+<script type="text/javascript" src="../lib/jquery.js"></script>
+<script type="text/javascript" src="../lib/handlebars.js"></script>
+<!--handlebars模板-->
+<script id="entry-template" type="text/x-handlebars-template">
+   <div>
+       {{title}}
+   </div>
+</script>
+<script>
+
+
+    var template = Handlebars.compile($("#entry-template").html());     //将模板编译成模板函数
+    var context = {
+        title: "标题",
+    };
+    $('#myDiv').html(template(context));
+    /**
+     * 块级
+     *
+     */
+   /* var people = [
+        {firstName: "Yehuda", lastName: "Katz"},
+        {firstName: "Carl", lastName: "Lerche"},
+        {firstName: "Alan", lastName: "Johnson"}
+    ]*/
+
+     var people ={
+         people: [
+             {firstName: "Yehuda", lastName: "Katz"},
+             {firstName: "Carl", lastName: "Lerche"},
+             {firstName: "Alan", lastName: "Johnson"}
+         ]
+     }
+    //我们创建一个叫list的helper来生成列表，helper接受people作为第一个参数，
+    // 一个option对象（hash）作为第二个参数。option包含一个属性fn，他可以调用一个context就像普通模板一样。
+    var templateHtml = $("#helpTemp").html();
+    var temp = Handlebars.compile(templateHtml);     //将模板编译成模板函数
+
+    //
+    Handlebars.registerHelper('list', function(items, options) {
+        console.log('items'+items);
+        console.log('options'+options);
+        var out = "<ul>";
+
+        for(var i=0, l=items.length; i<l; i++) {
+            out = out + "<li>" + options.fn(items[i]) + "</li>";
+        }
+
+        return out + "</ul>";
+    });
+</script>
+</html>

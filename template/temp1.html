@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test2</title>
+</head>
+<body>
+    <div>ss</div>
+    <table>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody id ="tableList">
+
+        </tbody>
+    </table>
+    <script type="text/javascript" src="../lib/jquery.js"></script>
+    <script type="text/javascript" src="../lib/handlebars.js"></script>
+    <script id = "table-template" type="text/x-handlebars-template">
+        {{#each this}}
+            <tr>
+                <td>{{addOne @index}}</td>
+                <td>{{name}}</td>
+                <td>{{age}}</td>
+                <td>{{sex}}</td>
+            </tr>
+        {{/each}}
+    </script>
+    <script>
+        $(function () {
+            var data = [
+                    {name:'aaa',age:'12',sex:'1'},
+                    {name:'bbb',age:'14',sex:'0'},
+                    {name:'ccc',age:'15',sex:'1'},
+
+            ];
+            //注册索引+1的helper
+             var handleHelper = Handlebars.registerHelper("addOne",function(index){
+                   //返回+1之后的结果
+                  this._index = index + 1;
+                  return index+1;
+             });
+            var myTemplate = Handlebars.compile($("#table-template").html());
+            //将json对象用刚刚注册的Handlebars模版封装，得到最终的html，插入到基础table中。
+            console.log(32,myTemplate(data));
+             $('#tableList').append(myTemplate(data));
+        });
+    </script>
+</body>
+</html>
