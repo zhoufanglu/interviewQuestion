@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style type="text/css">
+    .content{
+        display: flex;
+    }
+    .item{
+        border: solid 1px black;
+        flex: 1;
+    }
+    .item:first-child{
+        flex: 1 800px;
+    }
+</style>
 <body>
-
+    <div class="content">
+        <div class="item">
+            x
+        </div>
+        <div class="item">
+            x
+        </div>
+        <div class="item">
+            x
+        </div>
+    </div>
 </body>
 <script>
   //1编写一个程序将数组扁平化去并除其中重复部分数据，最终得到一个升序且不重复的数组
@@ -216,7 +238,7 @@
    * 最大跳n次，n为偶数最小跳n/2次  n为基数最小跳n/2+1次
    */
 
-    function getTimes(n) {
+    /*function getTimes(n) {
       if(n === 1){
             return 1
          } else if(n === 2){
@@ -225,7 +247,7 @@
         return(getTimes(n-1) + getTimes(n-2))
       }
     }
-  console.log(getTimes(6));
+  console.log(getTimes(6));*/
 
   /*function jumpFloor(target) {
   if(target == 1){
@@ -239,5 +261,174 @@
 }
 console.log(jumpFloor(3));*/
 
+  /**
+   * 两个数组合并成一个数组
+   * arr1 = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2']
+   * arr2 =  ['A', 'B', 'C', 'D']
+   * 合并为 ['A1', 'A2', 'A', 'B1', 'B2', 'B', 'C1', 'C2', 'C', 'D1', 'D2', 'D']
+   */
+    /*let arr_1 = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2']
+    let arr_2 = ['A', 'B', 'C', 'D']
+    let newArr = arr_2.map((item)=>{
+      return item+'3'
+    })
+    for(let i of newArr){
+      arr_1.push(i)
+    }
+    let lastArr = arr_1.sort()
+    for(let i =0;i<lastArr.length; i++){
+      if(lastArr[i].indexOf('3') !== -1){
+        lastArr[i] = lastArr[i].substring(0,1)
+      }
+    }
+    console.log(lastArr);*/
+
+  /**
+   * let & var
+   */
+  /*  var arr =[]
+  for (var i = 0; i< 10; i++){
+    setTimeout(()=>{
+        console.log(i);
+        JSON.stringify()
+    })
+  }*/
+  /**
+   * 简单改造下面的代码，使之分别打印 10 和 20。
+   */
+  /*var b = 10;
+  (function b(){
+    b = 20;
+    console.log(b);
+  })();*/
+  /**
+   * 对象层级数
+   */
+  /*const obj = {
+    a: 'x',
+    b: 1,
+    c:{
+      c1: 2,
+      c2: 2,
+      c3: {
+        c11:3,
+        c22:{
+          c111:4
+        }
+      }
+    },
+    d: {
+      d1:2,
+      d2:{
+        d11: 3
+      }
+    },
+  };*/
+  /*const obj = {
+    a:1,
+    b:'b',
+    n:'',
+    c:{
+      d:2,
+      e:{
+        f:3
+      },
+      g:{
+        h:3
+      },
+      i:{
+        j:{x:'a'},
+        k:{
+          l:4,
+          m:{n:5},
+          o:{p:'x'}
+        },
+      }
+    }
+  };*/
+  //let res = 0
+ /* function findObjLevel(obj,level) {
+    let res =level
+    for(let i in obj){
+      //console.log(i)
+      if(Object.prototype.toString.call(obj[i])==='[object Object]'//判断是否为对象
+      ){
+        level++
+        res = level > res ? level : res
+
+        console.log(i,obj[i],level);
+        //console.log(level);
+        findObjLevel(obj[i],res)
+        //console.log('-----------------------------');
+        //findObjLevel(obj[i])
+        //level = 0
+      }
+    }
+    //console.log(res);
+  }
+  findObjLevel(obj,1)
+  //console.log(res);
+  
+      function getDeep(obj, deep = 0) {
+        let maxDeep = deep
+        if (typeof obj === 'object') {
+          let i
+          for (const j in obj) {
+            if ((i = getDeep(obj[j], deep + 1)) > maxDeep) {
+              maxDeep = i
+            }
+          }
+        }
+        return maxDeep
+      }
+    //console.log(getDeep(obj));*/
+
+  /**
+   * 有两个有序数组M和N，怎么判断N是否为M的子集？
+   * arr_1 = [1,2,6,7,8] 
+   * arr_2 = [2,6]
+   */
+  /*const arr_1 = [1,2,6,7,8]
+  const arr_2 = [1,2,6,7,8]
+  let flag = false
+  for(let i=0;i<=arr_1.length-arr_2.length; i++){
+    const temp = []
+    for(let j=0;j< arr_2.length;j++){
+        temp.push(arr_1[i+j])
+    }
+    if(arr_2.toString() === temp.toString()){
+      flag = true
+    }
+    console.log(temp,arr_2);
+    console.log('--------');
+  }
+  console.log(flag);*/
+  /**
+   * a为什么时，下面的输出为1
+   */
+  /*let a = {
+    i: 1,
+    toString () {
+      return a.i++
+    }
+  }
+  console.log(a);
+  if(a == 1 && a == 2 && a == 3){
+    console.log(1);
+  }*/
+  /**
+   * 下面代码输出什么
+   */
+  var a = 10;
+  (function () {
+    console.log(a)  //undefind
+    a = 5
+    console.log(window.a)  //10
+    var a = 20;
+    console.log(a) //20
+  })()
+    console.log('----------');
+    console.log(b);
+    var b = 10
 </script>
 </html>

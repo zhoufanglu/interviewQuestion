@@ -16,6 +16,7 @@
 <select name="" id="">
     <option value="">11</option>
 </select>
+<div></div>
 <div id="container"></div>
 <script>
   var count = 1;
@@ -160,12 +161,108 @@
    * reject  函数 失败时调用
    * Promise 实例生成以后，可以用 then 方法和 catch 方法分别指定resolved 状态和 rejected 状态的回调函数。
    */
-    let p = new Promise((resolve, reject) => {
+    /*let p = new Promise((resolve, reject) => {
       resolve('success')
     })
     p.then(result => {
       console.log(result);
     })
+    
+    
+    let timer = setTimeout(()=>{
+      console.log('xx');
+    },timer)
+    clearTimeout(1)*/
+  /**
+   * 原型链输出问题
+   */
+  /*var A = function() {};
+  A.prototype.n = 1;
+  var b = new A();
+  A.prototype = {
+    n: 2,
+    m: 3
+  }
+  var c = new A();
+
+  console.log(188,b.n);//2
+  console.log(189,b.m);//3*/
+
+  /*function Person(name,age){
+    this.name = name
+    this.age = age
+    this.say = function () {
+      console.log(`名字:${this.name},年龄:${this.age}`);
+    }
+  }
+  var person_1 = new Person('tog',24)
+  console.log(199,Person);
+  console.log(person_1.__proto__ === Person.prototype);
+  console.log(198,Person.prototype);
+  console.log(199,Person.prototype.__proto__);
+  console.log(200,Person.prototype.constructor);*/
+  /**
+   * 测试题目
+   */
+ var obj = {
+    item0:{amount: 3, round: 1, stars: "2,8,29",  correct: "true",},
+    item1:{amount: 3, round: 2, stars: "13,19,22", candidateSel: "13,19,22", correct: "true", },
+    item2:{amount: 3, round: 3, stars: "4,28,35", candidateSel: "4,28,35", correct: "true", },
+    item3:{amount: 4, round: 1, stars: "6,12,28,35", candidateSel: "6,12,28,35", correct: "true", },
+    item4:{amount: 4, round: 2, stars: "10,14,17,32", candidateSel: "10,14,17,32", correct: "true", },
+    item5:{amount: 4, round: 3, stars: "0,18,25,28", candidateSel: "6,18,25,28", correct: "false", },
+    item6:{amount: 5, round: 1, stars: "0,2,5,18,19", candidateSel: "0,2,5,12,18", correct: "false", },
+    item7:{amount: 5, round: 2, stars: "0,9,11,22,31", candidateSel: "0,9,11,22,31", correct: "true", },
+    item8:{amount: 5, round: 3, stars: "10,12,13,22,32", candidateSel: "10,12,13,22,32", correct: "true", },
+    item9:{amount: 6, round: 1, stars: "4,5,9,18,33,35", candidateSel: "4,9,14,18,33,35", correct: "false", },
+    item10:{amount: 6, round: 2, stars: "5,12,20,23,33,34", candidateSel: "4,13,17,20,33,34", correct: "false", },
+    item11:{amount: 6, round: 3, stars: "0,1,7,23,26,35", candidateSel: "9,14,20,23,26,33", correct: "false", },
+    item12:{amount: 7, round: 1, stars: "0,1,8,10,19,22,23", candidateSel: "12,13,19,20,21,22,23", correct: "false", },
+    item13:{amount: 7, round: 2, stars: "4,5,9,10,14,25,32", candidateSel: "1,3,7,8,13,14,22", correct: "false", },
+    item14:{amount: 7, round: 3, stars: "9,11,16,18,24,29,32", candidateSel: "4,5,9,10,13,19,22", correct: "false", },
+    item15:{amount: 8, round: 1, stars: "2,8,13,19,24,28,32,34", candidateSel: "2,4,7,9,18,20,22,26", correct: "false", },
+    item16:{amount: 8, round: 2, stars: "1,5,15,18,27,30,31,34", candidateSel: "3,9,10,15,16,21,27,33", correct: "false", },
+    item17:{amount: 8, round: 3, stars: "0,4,8,10,17,22,34,35", candidateSel: "8,9,14,15,19,20,26,31", correct: "false", }
+  }
+  var timeIn_3 = 0
+  var timeInOther = 0
+  for(let i in obj){
+    //console.log(i,obj[i]);
+    if(i.indexOf('item')!== -1){
+      if(obj[i].amount === 3 && obj[i].correct === 'true'){
+        timeIn_3++
+      }else if(obj[i].amount !== 3 && obj[i].correct === 'true'){
+        timeInOther++
+      }
+    }
+  }
+  //console.log(timeIn_3,timeInOther);
+  var time = Number((timeIn_3+timeInOther/3).toFixed(2))
+  console.log(typeof(time));
+  let score
+  if(time === 3.00){
+    score = 1
+  }else if(time === 3.33 || time === 3.67){
+    score = 2
+  }else if(time === 4.00 || time === 4.33){
+    score = 3
+  }else if(time === 4.67 || time === 5.00){
+    score = 4
+  }else if(time === 5.33 || time === 5.67){
+    score = 5
+  }else if(time === 6.00){
+    score = 6
+  }else if(time === 6.33 || time === 6.67){
+    score = 7
+  }else if(time === 7.00 || time === 7.33){
+    score = 8
+  }else if(time === 7.67){
+    score = 9
+  }else if(time === 8.00){
+    score = 10
+  }
+    let string = "sub_4_1_"+score+""
+    console.log(string);
 </script>
 </body>
 
